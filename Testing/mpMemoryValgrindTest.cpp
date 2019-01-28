@@ -25,6 +25,7 @@
 // https://www.learncpp.com/cpp-tutorial/79-the-stack-and-the-heap/
 //==========================================================================================
 
+/*
 TEST_CASE( "1. Create stack allocated array.", "[Valgrind tests]") {
 
   // Q1. Create a single object. Does a stack allocated object leak at end of scope?
@@ -39,8 +40,9 @@ TEST_CASE( "1. Create stack allocated array.", "[Valgrind tests]") {
 
   std::cout << "Test 1: This line marks the end of test 1." << std::endl;
 }
+*/
 
-
+/*
 TEST_CASE( "2. Create heap allocated array", "[Valgrind tests]") {
 
   // Create an array of 10 integers
@@ -54,8 +56,9 @@ TEST_CASE( "2. Create heap allocated array", "[Valgrind tests]") {
   // Q6. Increase the number of ints, can you allocate more than in the first test (Q3)?
   std::cout << "Test 2: This line marks the end of test 2." << std::endl;
 }
+*/
 
-
+/*
 class ContainerA {
 public:
   ContainerA()
@@ -68,7 +71,6 @@ public:
 private:
   int myArray[10];
 };
-
 TEST_CASE( "3. Create abject containing a stack allocated block of memory", "[Valgrind tests]") {
 
   // Q7. Does this leak memory?
@@ -79,8 +81,9 @@ TEST_CASE( "3. Create abject containing a stack allocated block of memory", "[Va
 
   std::cout << "Test 3: This line marks the end of test 3." << std::endl;
 }
+*/
 
-
+/*
 class ContainerB {
 public:
   ContainerB()
@@ -97,7 +100,6 @@ private:
   int *myArray;
   int *mySingleInteger;
 };
-
 TEST_CASE( "4. Create abject containing a heap allocated block of memory", "[Valgrind tests]") {
 
   // Q8. Does this leak memory?
@@ -111,16 +113,15 @@ TEST_CASE( "4. Create abject containing a heap allocated block of memory", "[Val
 
   std::cout << "Test 4: This line marks the end of test 4." << std::endl;
 }
+*/
 
-
+/*
 class ThingA {
 public:
   ThingA() { std::cout << "Constructing ThingA" << std::endl;}
   ThingA(const ThingA &anotherThing)  { std::cout << "Copy constructing ThingA" << std::endl; }
   ~ThingA() { std::cout << "Destructing ThingA" << std::endl;}
 };
-
-
 TEST_CASE( "5. Vector example", "[Valgrind tests]") {
 
   // Above, we see how creating arrays and creating objects that contain objects
@@ -142,7 +143,9 @@ TEST_CASE( "5. Vector example", "[Valgrind tests]") {
 
   // Q11. What would happen therefore if ThingA had pointers to other objects?
 }
+*/
 
+/*
 TEST_CASE( "6. First SmartPointer example", "[Valgrind tests]") {
 
   // Q12. What's going on here?
@@ -166,8 +169,10 @@ TEST_CASE( "6. First SmartPointer example", "[Valgrind tests]") {
 
   std::cout << "Test 6: This line marks the end of test 6." << std::endl;
 }
+*/
 
 
+/*
 class ThingB {
 public:
   ThingB()
@@ -180,7 +185,6 @@ public:
 private:
   std::unique_ptr<ThingA> p;
 };
-
 std::unique_ptr<ThingB> FunctionThatDoesSomething(std::unique_ptr<ThingB>& myObject)
 {
   std::unique_ptr<ThingB> localVariable = std::move(myObject);
@@ -188,7 +192,6 @@ std::unique_ptr<ThingB> FunctionThatDoesSomething(std::unique_ptr<ThingB>& myObj
   std::cout << "localVariable: " << localVariable.get() << std::endl;
   return localVariable;
 }
-
 TEST_CASE( "7. ThingB containing ThingA", "[Valgrind tests]") {
 
   // As before, create a unique_ptr to hold a ThingB
@@ -214,11 +217,15 @@ TEST_CASE( "7. ThingB containing ThingA", "[Valgrind tests]") {
 
   std::cout << "Test 7: This line marks the end of test 7." << std::endl;
 }
+*/
 
-
+/*
 TEST_CASE( "8. Shared pointer example", "[Valgrind tests]") {
 
   // Q17. Create a shared pointer to a ThingB.
   // Q18. Create another shared pointer to the same ThingB, using assignment.
   // Q19. Create another shared pointer to the same ThingB, using copy constructor.
+  // Q20. So, are copy construct and assignment allowed?
+  // Q21. When does constructor get called? How many times?
 }
+*/
