@@ -17,6 +17,7 @@ set(TMP_DIR ${CMAKE_BINARY_DIR}/Testing/Temporary)
 
 set(TEST_CASES
   mpMemoryValgrindTest
+  mpExceptionsTest
 )
 
 foreach(_test_case ${TEST_CASES})
@@ -32,3 +33,4 @@ endforeach()
 ##################################################################################################
 
 add_test(MemValgrind ${EXECUTABLE_OUTPUT_PATH}/mpMemoryValgrindTest)
+add_test(Exceptions ${EXECUTABLE_OUTPUT_PATH}/mpExceptionsTest)
