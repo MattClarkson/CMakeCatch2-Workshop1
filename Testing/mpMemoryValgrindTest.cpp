@@ -25,7 +25,7 @@
 // https://www.learncpp.com/cpp-tutorial/79-the-stack-and-the-heap/
 //==========================================================================================
 
-TEST_CASE( "Create stack allocated array.", "[Valgrind tests]") {
+TEST_CASE( "1. Create stack allocated array.", "[Valgrind tests]") {
 
   // Q1. Create a single object. Does a stack allocated object leak at end of scope?
   int a = 10;
@@ -35,12 +35,13 @@ TEST_CASE( "Create stack allocated array.", "[Valgrind tests]") {
 
   // Q2. Above array is stack allocated. Does it leak memory at end of scope (function).
 
-  // Q3. Keep re-running the unit test, increasing the number of ints, until your program crashes. How many ints?
+  // Q3. Keep making and re-running the unit test, increasing the number of ints, until your program crashes. How many ints?
 
+  std::cout << "Test 1. This line is just for a break point." << std::endl;
 }
 
 
-TEST_CASE( "Create heap allocated array", "[Valgrind tests]") {
+TEST_CASE( "2. Create heap allocated array", "[Valgrind tests]") {
 
   // Create an array of 10 integers
   int *myArray = new int[10];
@@ -50,6 +51,7 @@ TEST_CASE( "Create heap allocated array", "[Valgrind tests]") {
   // Q5. Fix it by calling delete correctly.
 
   // Q6. Increase the number of ints, can you allocate more than in the first test (Q3)?
+  std::cout << "Test 2: This line is just to set a breakpoint on." << std::endl;
 }
 
 
@@ -74,7 +76,6 @@ TEST_CASE( "Create abject containing a stack allocated block of memory", "[Valgr
     ContainerA myObject;
   }
 }
-
 
 
 class ContainerB {
@@ -110,8 +111,10 @@ TEST_CASE( "Create abject containing a heap allocated block of memory", "[Valgri
 class ThingA {
 public:
   ThingA() { std::cout << "Constructing ThingA" << std::endl;}
+  ThingA(const ThingA &anotherThing)  { std::cout << "Copy constructing ThingA" << std::endl; }
   ~ThingA() { std::cout << "Destructing ThingA" << std::endl;}
 };
+
 
 TEST_CASE( "First SmartPointer example", "[Valgrind tests]") {
 
